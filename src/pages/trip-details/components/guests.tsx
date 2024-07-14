@@ -1,8 +1,9 @@
 import { CheckCircle2, CircleDashed, UserCog } from "lucide-react";
 import { Button } from "../../../components/button";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { api } from "../../../lib/axios";
+import { InviteGuestsModal } from "../../create-trip/components/invite-guests-modal";
 
 interface Participant {
   id: string
@@ -14,10 +15,52 @@ interface Participant {
 export function Guests() {
   const { tripId } = useParams()
   const [participants, setParticipants] = useState<Participant[]>([])
+  const [isAddGuestModalOpen, setIsAddGuestModalOpen] = useState(false)
+  const [emailsToInvite, setEmailsToInvite] = useState<string[]>([])
+
+  function openAddGuestModal() {
+    setIsAddGuestModalOpen(true)
+  }
+
+  function closeAddGuestModal() {
+    setIsAddGuestModalOpen(false)
+  }
+
+  function addNewEmailToInvite(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const data = new FormData(event.currentTarget)
+    const email = data.get('email')?.toString()
+
+    if (!email) {
+      return
+    }
+
+    if (emailsToInvite.includes(email)) {
+      return
+    }
+
+    if (participants.some(participant => participant.email === email)) {
+      return
+    }
+
+    setEmailsToInvite([
+      ...emailsToInvite,
+      email
+    ])
+
+    event.currentTarget.reset()
+  }
+
+  function removeEmailFromInvites(emailToRemove: string) {
+    const newEmailList = emailsToInvite.filter(email => email !== emailToRemove)
+
+    setEmailsToInvite(newEmailList)
+  }
 
   useEffect(() => {
     api.get(`/trips/${tripId}/participants`).then(response => setParticipants(response.data.participants))
-  }, [tripId])
+  }, [tripId, closeAddGuestModal])
 
   return (
     <div className="space-y-6">
@@ -42,10 +85,22 @@ export function Guests() {
         })}
       </div>
 
-      <Button variant="secondary" size="full">
+      <Button variant="secondary" size="full" onClick={openAddGuestModal}>
         <UserCog className="size-5" />
         Gerenciar convidados
       </Button>
+
+      {isAddGuestModalOpen && (
+        <InviteGuestsModal
+          addNewEmailToInvite={addNewEmailToInvite}
+          removeEmailFromInvites={removeEmailFromInvites}
+          closeGuestsModal={closeAddGuestModal}
+          emailsToInvite={emailsToInvite}
+          tripId={tripId}
+          isManageGuests
+        />
+      )}
+
     </div>
   )
 }

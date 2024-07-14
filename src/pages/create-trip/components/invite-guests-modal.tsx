@@ -1,12 +1,15 @@
-import { AtSign, Plus, X } from "lucide-react"
+import { AtSign, MailPlus, Plus, X } from "lucide-react"
 import type { FormEvent } from "react"
 import { Button } from "../../../components/button"
+import { api } from "../../../lib/axios"
 
 interface InviteGuestsModalProps {
   closeGuestsModal: () => void
   emailsToInvite: string[]
   addNewEmailToInvite: (event: FormEvent<HTMLFormElement>) => void
   removeEmailFromInvites: (email: string) => void
+  isManageGuests?: boolean
+  tripId?: string
 }
 
 export function InviteGuestsModal({
@@ -14,7 +17,30 @@ export function InviteGuestsModal({
   closeGuestsModal,
   emailsToInvite,
   removeEmailFromInvites,
+  isManageGuests,
+  tripId
 }: InviteGuestsModalProps) {
+
+  async function addNewGuests(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+
+    if (!tripId) return
+
+    if (emailsToInvite.length === 0) {
+      return
+    }
+
+    try {
+      for (const email of emailsToInvite) {
+        await api.post(`/trips/${tripId}/invites`, { email })
+      }
+    } catch (error) {
+      console.log(error)
+    }
+
+    closeGuestsModal()
+  }
+
   return (
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center">
       <div className="w-[640px] rounded-xl py-5 px-6 shadow-shape bg-zinc-900 space-y-5">
@@ -36,7 +62,7 @@ export function InviteGuestsModal({
               <div key={email} className="py-1.5 px-2.5 rounded-md bg-zinc-800 flex items-center gap-2">
                 <span className="text-zinc-300">{email}</span>
                 <button type="button" onClick={() => removeEmailFromInvites(email)}>
-                  <X className="size-4 text-zinc-400" />
+                  <X className="size-5 text-zinc-400" />
                 </button>
               </div>
             )
@@ -61,6 +87,14 @@ export function InviteGuestsModal({
             <Plus className="size-5" />
           </Button>
         </form>
+        {isManageGuests && (
+          <form onSubmit={addNewGuests}>
+            <Button type="submit" variant="primary" size="full">
+              Confirmar
+              <MailPlus className="size-5" />
+            </Button>
+          </form>
+        )}
       </div>
     </div>
   )
