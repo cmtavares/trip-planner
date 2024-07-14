@@ -1,8 +1,8 @@
 import { Calendar, Tag, X } from "lucide-react"
-import { Button } from "../../components/button"
+import { Button } from "../../../components/button"
 import { FormEvent } from "react"
 import { useParams } from "react-router-dom"
-import { api } from "../../lib/axios"
+import { api } from "../../../lib/axios"
 
 interface CreateActivityModalProps {
   closeCreateActivityModal: () => void
@@ -44,8 +44,8 @@ export function CreateActivityModal({
           </p>
         </div>
 
-        <form onSubmit={createActivity} className="space-y-3">
-          <div className="h-14 px-4 bg-zinc-950 border border-zinc-800 rounded-lg flex items-center gap-2">
+        <form onSubmit={createActivity} className="space-y-3 ">
+          <div className="h-14 px-4 bg-zinc-950 border border-zinc-800 rounded-lg flex items-center gap-2 focus-within:border-lime-300">
             <Tag className="size-5 text-zinc-400" />
             <input
               name="title"
@@ -55,7 +55,7 @@ export function CreateActivityModal({
           </div>
 
           <div className="flex items-center gap-2">
-            <div className="h-14 flex-1 px-4 bg-zinc-950 border border-zinc-800 rounded-lg flex items-center gap-2">
+            <div className="h-14 flex-1 px-4 bg-zinc-950 border border-zinc-800 rounded-lg flex items-center gap-2 focus-within:border-lime-300">
               <Calendar className="size-5 text-zinc-400" />
               <input
                 type="datetime-local"

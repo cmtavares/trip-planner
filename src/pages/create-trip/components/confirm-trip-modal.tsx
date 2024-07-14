@@ -1,6 +1,6 @@
 import { Mail, User, X } from "lucide-react"
 import type { FormEvent } from "react"
-import { Button } from "../../components/button"
+import { Button } from "../../../components/button"
 import { DateRange } from "react-day-picker"
 import { format } from "date-fns"
 import { ptBR } from "date-fns/locale"

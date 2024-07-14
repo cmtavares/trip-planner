@@ -1,10 +1,10 @@
 import { Plus } from "lucide-react";
 import { useState } from "react";
-import { CreateActivityModal } from "./create-activity-modal";
-import { ImportantLinks } from "./important-links";
-import { Guests } from "./guests";
-import { Activities } from "./activities";
-import { DestinationAndDateHeader } from "./destination-and-date-header";
+import { CreateActivityModal } from "./components/create-activity-modal";
+import { ImportantLinks } from "./components/important-links";
+import { Guests } from "./components/guests";
+import { Activities } from "./components/activities";
+import { DestinationAndDateHeader } from "./components/destination-and-date-header";
 
 export function TripDetailsPage() {
   const [isCreateActivityModalOpen, setIsCreateActivityModalOpen] = useState(false)
@@ -27,7 +27,7 @@ export function TripDetailsPage() {
             <h2 className="text-3xl font-semibold">Atividades</h2>
             <button onClick={openCreateActivityModal} className="bg-lime-300 text-lime-950 rounded-lg px-5 py-2 font-medium flex items-center gap-2 hover:bg-lime-400">
               <Plus className="size-5" />
-              Cadastrar atividade
+              <span className="whitespace-nowrap text-ellipsis">Cadastrar atividade</span>
             </button>
           </div>
 
