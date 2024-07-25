@@ -1,4 +1,4 @@
-<p>
+<p align="center">
   Application developed on Rocketseat's NLW Journey on the React track.
 </p>
 
