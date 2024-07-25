@@ -4,6 +4,10 @@
   Application developed on Rocketseat's NLW Journey on the React track.
 </p>
 
+<p align="center">
+  <img alt="Preview do projeto desenvolvido." src="https://github.com/user-attachments/assets/3f859e4d-7758-46db-8929-9549114b6fb7" width="60%">
+</p>
+
 ## Table of Contents
 
 - [Technologies](#technologies)
@@ -12,12 +16,8 @@
 
 <br>
 
-<p align="center">
-  <img alt="Preview do projeto desenvolvido." src="https://github.com/user-attachments/assets/3f859e4d-7758-46db-8929-9549114b6fb7" width="60%">
-</p>
 
-
-## 🚀 Technologies
+## Technologies
 
 This project was developed with the following technologies:
 
