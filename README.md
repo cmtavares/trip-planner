@@ -1,12 +1,14 @@
-<p align="center">
+# Trip Planner Application
+
+<p>
   Application developed on Rocketseat's NLW Journey on the React track.
 </p>
 
-<p align="center">
-  <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-</p>
+## Table of Contents
 
+- [Technologies](#technologies)
+- [Project](#project)
+- [Configuration](#configuration)
 
 <br>
 
