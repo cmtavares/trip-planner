@@ -31,16 +31,16 @@ In this project I developed a comprehensive application for creating and managin
 
 ## Configuration
 
-1. Clone the repository:
-
-   ```shell
-   git clone https://github.com/cmtavares/trip-planner.git
-   ```
-
 To have a full experience of the application, you will need to clone another repository:
 
    ```shell
    git clone https://github.com/cmtavares/trip-planner-backend.git
+   ```
+
+1. Clone the repository:
+
+   ```shell
+   git clone https://github.com/cmtavares/trip-planner.git
    ```
 
 2. Build the application:
