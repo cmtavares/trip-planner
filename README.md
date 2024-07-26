@@ -37,7 +37,7 @@ In this project I developed a comprehensive application for creating and managin
    git clone https://github.com/cmtavares/trip-planner.git
    ```
 
-To have a full experience of the application, you will need to clone another repository
+To have a full experience of the application, you will need to clone another repository:
 
    ```shell
    https://github.com/cmtavares/trip-planner-backend.git
