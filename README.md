@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img alt="Preview do projeto desenvolvido." src="https://github.com/user-attachments/assets/3f859e4d-7758-46db-8929-9549114b6fb7" width="60%">
+  <img alt="Preview do projeto desenvolvido." src="https://github.com/user-attachments/assets/3f859e4d-7758-46db-8929-9549114b6fb7">
 </p>
 
 ## Table of Contents
